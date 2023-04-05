@@ -98,9 +98,7 @@ export function CardForm({
                   style={{ borderColor: showError ? "#FF5252" : "" }}
                 />
                 {showError && !month && (
-                  <span style={{ color: "red" }}>
-                    Preencha o número do cartão
-                  </span>
+                  <span style={{ color: "red" }}>Preencha o mês</span>
                 )}
               </div>
               <div>
@@ -119,9 +117,7 @@ export function CardForm({
                   style={{ borderColor: showError ? "#FF5252" : "" }}
                 />
                 {showError && !year && (
-                  <span style={{ color: "red" }}>
-                    Preencha o número do cartão
-                  </span>
+                  <span style={{ color: "red" }}>Preencha o ano</span>
                 )}
               </div>
             </InputContainer>

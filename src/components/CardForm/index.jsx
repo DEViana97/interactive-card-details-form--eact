@@ -4,14 +4,14 @@ import InputMask from "react-input-mask";
 import {
   Form,
   InputDate,
-  CvcInput,
+  CvvInput,
   FormContainer,
   NameField,
   CardField,
   CardInformation,
   CardDate,
   InputContainer,
-  CvcField,
+  CvvField,
   SubmitButton,
 } from "./styles";
 
@@ -122,9 +122,9 @@ export function CardForm({
               </div>
             </InputContainer>
           </CardDate>
-          <CvcField>
-            <label>CVC:</label>
-            <CvcInput
+          <CvvField>
+            <label>CVV:</label>
+            <CvvInput
               type="text"
               pattern="[0-9]*"
               maxLength="3"
@@ -140,9 +140,9 @@ export function CardForm({
               style={{ borderColor: showError ? "#FF5252" : "" }}
             />
             {showError && !cardCvv && (
-              <span style={{ color: "red" }}>Preencha o número do cartão</span>
+              <span style={{ color: "red" }}>Preencha o CVV</span>
             )}
-          </CvcField>
+          </CvvField>
         </CardInformation>
         <SubmitButton type="submit" onClick={handleSubmit}>
           Submit

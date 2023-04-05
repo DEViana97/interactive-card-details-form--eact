@@ -70,7 +70,7 @@ export const CardDate = styled.div`
   grid-column: 1 span;
 `;
 
-export const CvcField = styled.div`
+export const CvvField = styled.div`
   display: flex;
   flex-direction: column;
   grid-column: 1 span;
@@ -89,7 +89,7 @@ export const InputDate = styled.input`
   margin-left: 0;
 `;
 
-export const CvcInput = styled.input`
+export const CvvInput = styled.input`
   width: 100%;
 `;
 

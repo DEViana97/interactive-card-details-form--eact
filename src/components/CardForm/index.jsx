@@ -30,10 +30,9 @@ export function CardForm({
 }) {
   const [showError, setShowError] = useState(false);
 
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
 
-    // Verifica se os campos obrigatórios foram preenchidos
     if (!cardName || !cardNumber || !month || !year || !cardCvv) {
       setShowError(true);
       return;
@@ -41,7 +40,7 @@ export function CardForm({
       setConfirmed(true);
       setShowError(false);
     }
-  };
+  }
 
   return (
     <FormContainer>
@@ -145,7 +144,7 @@ export function CardForm({
           </CvvField>
         </CardInformation>
         <SubmitButton type="submit" onClick={handleSubmit}>
-          Submit
+          Cadastrar
         </SubmitButton>
       </Form>
     </FormContainer>

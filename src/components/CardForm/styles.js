@@ -101,4 +101,8 @@ export const SubmitButton = styled.button`
   border-radius: 6px;
   background: var(--Very-dark-violet);
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;

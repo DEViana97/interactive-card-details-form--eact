@@ -29,16 +29,26 @@ export function CardForm({
   setConfirmed,
 }) {
   const [showError, setShowError] = useState(false);
+  const [showCardNumberError, setShowCardNumberError] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (!cardName || !cardNumber || !month || !year || !cardCvv) {
+    if (
+      !cardName ||
+      !cardNumber ||
+      !month ||
+      !year ||
+      !cardCvv ||
+      cardNumber.length !== 19
+    ) {
       setShowError(true);
+      setShowCardNumberError(cardNumber.length !== 19);
       return;
     } else {
       setConfirmed(true);
       setShowError(false);
+      setShowCardNumberError(false);
     }
   }
 
@@ -52,7 +62,9 @@ export function CardForm({
             value={cardName}
             placeholder="Ex: João da Silva"
             onChange={(e) => setCardName(e.target.value)}
-            style={{ borderColor: showError ? "#FF5252" : "" }}
+            style={{
+              borderColor: showError && cardName === "" ? "#FF5252" : "",
+            }}
           />
           {showError && !cardName && (
             <span style={{ color: "red" }}>Preencha o nome do titular</span>
@@ -70,9 +82,15 @@ export function CardForm({
             placeholder="Ex: 0000 0000 0000 0000"
             onBlur={() => {}}
             required
-            style={{ borderColor: showError ? "#FF5252" : "" }}
+            style={{
+              borderColor:
+                (showError && cardNumber === "") ||
+                (showCardNumberError && cardNumber.length !== 16)
+                  ? "#FF5252"
+                  : "",
+            }}
           />
-          {showError && !cardNumber && (
+          {showError && (!cardNumber || cardNumber.length !== 19) && (
             <span style={{ color: "red" }}>Preencha o número do cartão</span>
           )}
         </CardField>
@@ -94,7 +112,9 @@ export function CardForm({
                     }
                   }}
                   required
-                  style={{ borderColor: showError ? "#FF5252" : "" }}
+                  style={{
+                    borderColor: showError && month === "" ? "#FF5252" : "",
+                  }}
                 />
                 {showError && !month && (
                   <span style={{ color: "red" }}>Preencha o mês</span>
@@ -113,7 +133,9 @@ export function CardForm({
                     }
                   }}
                   required
-                  style={{ borderColor: showError ? "#FF5252" : "" }}
+                  style={{
+                    borderColor: showError && year === "" ? "#FF5252" : "",
+                  }}
                 />
                 {showError && !year && (
                   <span style={{ color: "red" }}>Preencha o ano</span>
@@ -136,7 +158,9 @@ export function CardForm({
                 }
               }}
               required
-              style={{ borderColor: showError ? "#FF5252" : "" }}
+              style={{
+                borderColor: showError && cardCvv === "" ? "#FF5252" : "",
+              }}
             />
             {showError && !cardCvv && (
               <span style={{ color: "red" }}>Preencha o CVV</span>

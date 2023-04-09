@@ -60,7 +60,7 @@ export const Cards = styled.div`
 
 export const CardFront = styled.div`
   position: relative;
-  transform: translateX(-100px);
+  transform: translateX(-70px);
 
   @media screen and (max-width: 1023px) {
     width: 300px;
